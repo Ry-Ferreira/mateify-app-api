@@ -1,14 +1,14 @@
 # mateify-appweb
 
 #Users
-  - Object -
+  - Object
   
-      {
-        name: String,
-        last name : String,
-        email: String,
-        age: Number,
-      }
+        {
+          name: String,
+          last name : String,
+          email: String,
+          age: Number,
+        }
     
 #GET/users
   - Devuelve todos los usuarios-
