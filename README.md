@@ -11,7 +11,7 @@
         }
     
 #GET/users
-  - Devuelve todos los usuarios-
+  - Devuelve todos los usuarios
   
         Response
              Succes: Status(200)
