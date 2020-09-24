@@ -105,7 +105,7 @@
      
    
    #Songs
-        - Devuelve al array de objetos de canciones
+        - Object
         
                 {
                    "name": String, 
