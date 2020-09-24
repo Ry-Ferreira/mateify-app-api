@@ -2,27 +2,30 @@
 
 #Users
   - Object
-    {
-      name: String
-      last name : String
-      email: String
-      age: Number
-    }
+      {
+        name: String,
+        last name : String,
+        email: String,
+        age: Number,
+      }
     
 #GET/users
-  - Devuelve todos los usuarios
+  - Devuelve todos los usuarios-
+  
      Response
-     Succes: Status(200)
-             Content: 
-             {[
-                {<user_Object>},
-                {<user_Object>},
-                ...
-             ]}
+             Succes: Status(200)
+                     Content: 
+                            {[
+                                {<user_Object>},
+                                {<user_Object>},
+                                ...
+                            ]}
       
-      Error: Status(404) - 'No hemos encontrado ningun usuario en la base de datos.'
+      Error: Status(404) 
+             Content: { error: No hemos encontrado ningun usuario en la base de datos. }
 
 #GET /users/:id
+
         - Devuelve el usuario con la misma 'id' que el parámetro
                 Required
                         URLParams {<id: Number>}
