@@ -1,7 +1,8 @@
 # mateify-appweb
 
 #Users
-  - Object
+  - Object -
+  
       {
         name: String,
         last name : String,
