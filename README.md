@@ -13,7 +13,7 @@
 #GET/users
   - Devuelve todos los usuarios-
   
-     Response
+        Response
              Succes: Status(200)
                      Content: 
                             {[
@@ -22,12 +22,12 @@
                                 ...
                             ]}
       
-      Error: Status(404) 
+        Error: Status(404) 
              Content: { error: No hemos encontrado ningun usuario en la base de datos. }
 
 #GET /users/:id
-
-        - Devuelve el usuario con la misma 'id' que el parámetro
+       - Devuelve el usuario con la misma 'id' que el parámetro
+        
                 Required
                         URLParams {<id: Number>}
                 Response
@@ -41,6 +41,7 @@
                         
 #GET /users/:id/playlist
         - Devuelve la playlist asociada al usuario con 'id'
+        
                 Response
                         Succes: Status(200)
                                 Content 
@@ -57,6 +58,7 @@
                          
  #POST /users
         - Crea un nuevo objecto de usuario
+        
                 Required: Data Params (JSON)
                                 {
                                    name: String,
@@ -75,6 +77,7 @@
   
   #PATCH /users/:id
         - Modifica el usuario con 'id' especificado y devuelve el objecto del nuevo usuario.
+        
                 Required: URLParams {<id: Number>}
                 
                           Data Params (JSON)
@@ -92,6 +95,7 @@
                                
   #DELETE /users/:id
         - Elimina el usuario con la 'id' especificada
+        
                 Required: URLParams {<id: Number>}
                 
                 Response 
@@ -101,7 +105,8 @@
      
    
    #Songs
-        - Song object
+        - Devuelve al array de objetos de canciones
+        
                 {
                    "name": String, 
                    "album": String, 
@@ -110,6 +115,7 @@
                 }
   #GET /songs
         - Devuelve todas las canciones
+        
                 Response
                         Succes: Status(200)
                                 Content: 
@@ -126,6 +132,7 @@
                                
 #GET /songs/:id
         -Devuelve la cancion con la 'id' especificada
+        
                 Required: URLParams {<id: Number>}
                 
                 Response 
@@ -135,6 +142,7 @@
                                Content: 'No hemos encontrado una canción con esa id'
 #POST /songs
         - Agrega una canción y devuelve el objeto 'song'
+        
                 Required: Data Paramas {
                                            name: String,
                                            album: String,
@@ -148,6 +156,7 @@
                                Content: 'Error al crear la canción'
 #PATCH /songs/:id
         -Modifica la canción con 'id' especificado y devuelve el objecto de la nueva canción.
+        
                 Required: URLParams {<id: Number>}
                 
                           Data Params {
@@ -163,6 +172,7 @@
                                Content: { error: 'La canción no existe' }
 #DELETE /songs/:id
         -Borra la cancion con la  'id' especificada.
+        
                 Required: URLParams {<id: Number>}
                 
                 Response 
