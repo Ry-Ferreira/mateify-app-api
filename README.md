@@ -25,8 +25,8 @@
         Error: Status(404) 
              Content: { error: No hemos encontrado ningun usuario en la base de datos. }
 
-#GET /users/:id
-       - Devuelve el usuario con la misma 'id' que el parámetro
+#GET /users/:name
+       - Devuelve el usuario con la misma 'name' que el parámetro
         
                 Required
                         URLParams {<id: Number>}
@@ -39,8 +39,8 @@
                                         }
                         Error: Status(404) - 'No hemos encontrado el usuario.'
                         
-#GET /users/:id/playlist
-        - Devuelve la playlist asociada al usuario con 'id'
+#GET /users/:name/playlist
+        - Devuelve la playlist asociada al usuario con 'name'
         
                 Response
                         Succes: Status(200)
@@ -75,8 +75,8 @@
                                         }
                         Error: Status(404) - 'Formato de usuario inválido'
   
-  #PATCH /users/:id
-        - Modifica el usuario con 'id' especificado y devuelve el objecto del nuevo usuario.
+  #PUT /users/:name
+        - Modifica el usuario con 'name' especificado y devuelve el objecto del nuevo usuario.
         
                 Required: URLParams {<id: Number>}
                 
@@ -93,7 +93,7 @@
                         Error: Status(404)
                                Content: {error: 'User doesn't exist'}
                                
-  #DELETE /users/:id
+  #DELETE /users/:name
         - Elimina el usuario con la 'id' especificada
         
                 Required: URLParams {<id: Number>}
@@ -130,8 +130,8 @@
                         Error: Status(404)
                                Content: 'No hemos encontrado canciones en la base de datos'
                                
-#GET /songs/:id
-        -Devuelve la cancion con la 'id' especificada
+#GET /songs/:name
+        -Devuelve la cancion con la 'name' especificada
         
                 Required: URLParams {<id: Number>}
                 
@@ -154,8 +154,8 @@
                                 Content: { <song_Object> }
                         Error: Status(404)
                                Content: 'Error al crear la canción'
-#PATCH /songs/:id
-        -Modifica la canción con 'id' especificado y devuelve el objecto de la nueva canción.
+#PUT /songs/:name
+        -Modifica la canción con 'name' especificado y devuelve el objecto de la nueva canción.
         
                 Required: URLParams {<id: Number>}
                 
@@ -170,8 +170,8 @@
                                 Content: { <song_Object> }
                         Error: Status(404)
                                Content: { error: 'La canción no existe' }
-#DELETE /songs/:id
-        -Borra la cancion con la  'id' especificada.
+#DELETE /songs/:name
+        -Borra la cancion con la 'name' especificada.
         
                 Required: URLParams {<id: Number>}
                 
