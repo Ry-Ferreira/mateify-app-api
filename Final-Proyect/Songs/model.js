@@ -8,15 +8,25 @@ const songSchema = new Schema({
     artist: String
 });
 
-const model = mongoose.model('Song', songSchema, 'Songs');
+const songModel = mongoose.model('Song', songSchema);
 
 const handelFindSong = async() => {
-    let songJSON = await model.find({});
-    console.log(songJSON + 'desde model');
+    let songJSON = await songModel.find({});
     return songJSON;
 }
 
+const createSong = async(song) => {
+    let docSong = new songModel(song);
+    await docSong.save();
+};  
+
+const authUpdateSong = (changes) => {
+    let docSongModified = new songModel(changes);
+    await docSongModified.save();
+}; 
 
 module.exports = {
-    handelFindSong
-}
+    handelFindSong,
+    createSong,
+    authUpdateSong
+};
