@@ -29,7 +29,7 @@
        - Devuelve el usuario con la misma 'name' que el parámetro
         
                 Required
-                        URLParams {<id: Number>}
+                        URLParams {<name: String>}
                 Response
                         Succes: Status(200)
                                 Content
@@ -78,7 +78,7 @@
   #PUT /users/:name
         - Modifica el usuario con 'name' especificado y devuelve el objecto del nuevo usuario.
         
-                Required: URLParams {<id: Number>}
+                Required: URLParams {<name: String>}
                 
                           Data Params (JSON)
                                 {
@@ -94,9 +94,9 @@
                                Content: {error: 'User doesn't exist'}
                                
   #DELETE /users/:name
-        - Elimina el usuario con la 'id' especificada
+        - Elimina el usuario con la 'name' especificada
         
-                Required: URLParams {<id: Number>}
+                Required: URLParams {<name: String>}
                 
                 Response 
                         Succes: Status(204)
@@ -133,7 +133,7 @@
 #GET /songs/:name
         -Devuelve la cancion con la 'name' especificada
         
-                Required: URLParams {<id: Number>}
+                Required: URLParams {<name: String>}
                 
                 Response 
                         Succes: Status(200)
@@ -157,7 +157,7 @@
 #PUT /songs/:name
         -Modifica la canción con 'name' especificado y devuelve el objecto de la nueva canción.
         
-                Required: URLParams {<id: Number>}
+                Required: URLParams {<name: String>}
                 
                           Data Params {
                                           name: String,
@@ -173,7 +173,7 @@
 #DELETE /songs/:name
         -Borra la cancion con la 'name' especificada.
         
-                Required: URLParams {<id: Number>}
+                Required: URLParams {<name: String>}
                 
                 Response 
                         Succes: Status(200)
