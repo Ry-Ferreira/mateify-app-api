@@ -1,3 +1,4 @@
+const express = require('express');
 const controllerSong = require('./controller');
 
 const getSongs = async(req, res) => {
@@ -5,45 +6,49 @@ const getSongs = async(req, res) => {
         let songs = await controllerSong.findSongs();
         res.status(200).send(songs);
     } catch(e) {
-        res.status(404).send(e + '/: No hemos encontrado ninguna canción en la base de datos');
+        res.status(404).send(e + ' No hemos encontrado ninguna canción en la base de datos');
     }
 };
 
-const getSongById = async(req, res) => {
+const getSongByName = async(req, res) => {
     let name = req.params.name;
     let songList = await controllerSong.findSongs();
-            const result = songList.filter((song) => {
+        try{
+            let result = songList.filter((song) => {
                 if(song.name == name){
-                    res.status(200).send(result);
+                    return true;
                 } else {
-                    res.status(404).send('No hemos encontrado una cancion con ese nombre.');
+                    return false;
                 }
             });
+                if(result) {
+                    res.status(200).send(result);
+                };
+        } catch(e) {
+            res.status(404).send(e + ' ...Y por eso no funcionó.');
+        }
 };
 
 const addSongs = async(req, res) => {
-    let bodySong = req.body;
-    controllerSong.newSong(bodySong);
-    res.send('hola');
+    try{
+        let bodySong = req.body;
+        controllerSong.newSong(bodySong);
+        res.status(201).send('Canción agregada correctamente');
+    } catch(e) {
+        res.status(404).send('Fromato inválido o canción ya agregada.');
+    }
 };
 
 const updateSong = async(req, res) => {
     let name = req.params.name;
     let changes = req.body;
-    let songList = await controllerSong.findSongs();
-    let result = songList.filter((s) => {
-        if(s.name == name) {
-            controllerSong.modifiedSong(changes);
-            res.status(200).send('Canción encontrada.');
-        } else {
-            res.status(404).send('No hemos encontrado una canción con ese nombre');
-        }
-    }); 
+    await controllerSong.modifiedSong(name, changes);
+    res.status(200).send('that is work');
 };
 
 module.exports = {
     getSongs,
-    getSongById,
+    getSongByName,
     addSongs,
     updateSong
 };
