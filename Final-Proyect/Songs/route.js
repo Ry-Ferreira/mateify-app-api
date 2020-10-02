@@ -1,4 +1,3 @@
-const express = require('express');
 const controllerSong = require('./controller');
 
 const getSongs = async(req, res) => {
@@ -30,8 +29,8 @@ const getSongByName = async(req, res) => {
 };
 
 const addSongs = async(req, res) => {
-    try{
-        let bodySong = req.body;
+    let bodySong = req.body;
+    try {
         controllerSong.newSong(bodySong);
         res.status(201).send('Canción agregada correctamente');
     } catch(e) {
@@ -42,13 +41,28 @@ const addSongs = async(req, res) => {
 const updateSong = async(req, res) => {
     let name = req.params.name;
     let changes = req.body;
-    await controllerSong.modifiedSong(name, changes);
-    res.status(200).send('that is work');
+    try {
+        await controllerSong.modifiedSong(name, changes);
+        res.status(200).send('Canción modificada correctamente.');
+    } catch(e) {
+        res.status(404).send('Hemos detectado un error: ' + e + '. Intenta cambiando el nombre de la canción.');
+    }
 };
 
+const deleteSong = async(req, res) => {
+    let song = req.params.name;
+    try {
+        controllerSong.removeSong(song);
+        res.status(404).send('Canción eliminada correctamente.');
+    } catch(e) {
+        res.status(404).send('Hemos encontrado un error: ' + e + '. Intenta cambiando el nombre de la canción.');
+    }
+};
+ 
 module.exports = {
     getSongs,
     getSongByName,
     addSongs,
-    updateSong
+    updateSong,
+    deleteSong
 };

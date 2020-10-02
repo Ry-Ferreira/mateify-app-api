@@ -10,7 +10,7 @@ const songSchema = new Schema({
 
 const songModel = mongoose.model('song', songSchema);
 
-const handelFindSong = async() => {
+const handleFindSong = async() => {
     let songJSON = await songModel.find({});
     return songJSON;
 }
@@ -21,12 +21,18 @@ const createSong = async(song) => {
 };  
 
 const authUpdateSong = async(filter, changes) => {
-    let doc = { name: filter };
-    await songModel.findOneAndUpdate(doc, { name: changes.name });
+    let docId = { name: filter };
+    await songModel.findOneAndUpdate(docId, { name: changes.name });
 }; 
 
+const handleDeleteSong = async(song) => {
+    let id = { _id: song };
+    await songModel.findOneAndDelete(id);
+};
+
 module.exports = {
-    handelFindSong,
+    handleFindSong,
     createSong,
-    authUpdateSong
+    authUpdateSong,
+    handleDeleteSong
 };
