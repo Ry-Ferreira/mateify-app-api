@@ -9,7 +9,7 @@ mongoose.connect('mongodb+srv://Ry-Ferreira_16:Bolsolapasion2.@forbootcampmatea.
 
 const server = express();
 server.use(express.json());
-server.listen(4000);
+server.listen(process.env.PORT);
 console.log('Server listen port 4000');
 
 //Songs
@@ -34,8 +34,6 @@ server.put('/users/:name', routeUsers.updateUser);
 
 server.delete('/users/:name', routeUsers.deleteUser);
 
-// server.get('/users', dbUsers.userRoute);
-// server.post('/users', dbUsers.userRoute);
 
 
 
