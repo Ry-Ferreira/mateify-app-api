@@ -1,0 +1,26 @@
+{
+  "name": "mateify-appweb",
+  "version": "1.0.0",
+  "description": "- Object",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.7",
+    "nodemon": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ry-Ferreira/mateify-appweb.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ry-Ferreira/mateify-appweb/issues"
+  },
+  "homepage": "https://github.com/Ry-Ferreira/mateify-appweb#readme"
+}
