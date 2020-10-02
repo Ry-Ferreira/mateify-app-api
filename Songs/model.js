@@ -34,5 +34,6 @@ module.exports = {
     handleFindSong,
     createSong,
     authUpdateSong,
-    handleDeleteSong
+    handleDeleteSong,
+    songModel: songModel
 };

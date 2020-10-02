@@ -1,6 +1,5 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const route = require('./Songs/route.js');
 
 const routeSongs = require('./Songs/route.js');
 const routeUsers = require('./Users/route.js');
@@ -9,7 +8,7 @@ mongoose.connect('mongodb+srv://Ry-Ferreira_16:Bolsolapasion2.@forbootcampmatea.
 
 const server = express();
 server.use(express.json());
-server.listen(process.env.PORT);
+server.listen(4000);
 console.log('Server listen port 4000');
 
 //Songs
@@ -34,6 +33,7 @@ server.put('/users/:name', routeUsers.updateUser);
 
 server.delete('/users/:name', routeUsers.deleteUser);
 
-
-
+/*
+RUTE OF SERVER: https://ry-mateify-api.herokuapp.com
+*/
 
