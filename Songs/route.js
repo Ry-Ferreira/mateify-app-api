@@ -59,7 +59,7 @@ const deleteSong = async(req, res) => {
     let song = req.params.name;
     try {
         controllerSong.removeSong(song);
-        res.status(404).send('Canción eliminada correctamente.');
+        res.status(200).send('Canción eliminada correctamente.');
     } catch(e) {
         res.status(404).send('Hemos encontrado un error: ' + e + '. Intenta cambiando el nombre de la canción.');
     }

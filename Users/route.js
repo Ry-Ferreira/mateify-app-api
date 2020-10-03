@@ -85,7 +85,7 @@ const deleteFav = (req, res) => {
     let songFav = req.params.song;
     try {
         controllerUsers.deleteFavSong(nameUser, songFav);
-        res.satus(200).send('Canción retirada de favoritos.');
+        res.status(200).send('Canción retirada de favoritos.');
     } catch(e) {
         res.status(404).send('Hemos detectado un error: ' + ' ' + e);
     }
