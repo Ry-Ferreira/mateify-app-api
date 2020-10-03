@@ -26,7 +26,7 @@ const authUpdateSong = async(filter, changes) => {
 }; 
 
 const handleDeleteSong = async(song) => {
-    let id = { _id: song };
+    let id = { name: song };
     await songModel.findOneAndDelete(id);
 };
 
