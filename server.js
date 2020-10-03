@@ -8,7 +8,7 @@ mongoose.connect('mongodb+srv://Ry-Ferreira_16:Bolsolapasion2.@forbootcampmatea.
 
 const server = express();
 server.use(express.json());
-server.listen(4000);
+server.listen(process.env.PORT);
 console.log('Server listen port 4000');
 
 //Songs
