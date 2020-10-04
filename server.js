@@ -11,6 +11,12 @@ server.use(express.json());
 server.listen(process.env.PORT);
 console.log('Server listen port');
 
+server.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
+
 //Songs
 server.get('/songs', routeSongs.getSongs);
 server.get('/songs/:name', routeSongs.getSongByName);
