@@ -93,6 +93,18 @@
                         Error: Status(404)
                                Content: {error: 'User doesn't exist'}
                                
+  #PUT /users/:name/:song 
+        - Agrega una canción a la lista de favoritos.
+        
+                 Required: URLParams {<name: String>, <song: String>}
+                 
+                 Response
+                         Succes: Status(200)
+                                 Content: "Canción agregada a favoritos."
+                         Error: Status(404)
+                                Content: "Hemos encontrado un error: ' + ' ' + e"
+                         
+  
   #DELETE /users/:name
         - Elimina el usuario con la 'name' especificada
         
